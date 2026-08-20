@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic Notes: Object on an Inclined Plane</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .infographic-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+        }
+
+        /* Anti-Copy CSS Class */
+        .user-select-none {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+
+        /* Clean Text Outline Style (White Halo for Crisp Legibility) */
+        .svg-text-clean {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            paint-order: stroke fill;
+            stroke: #ffffff;
+            stroke-width: 4px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body id="pageBody" class="bg-slate-200 font-sans text-slate-800 min-h-screen py-4 px-2 sm:px-6 relative user-select-none">
+
+    <!-- CUSTOM SECURITY TOAST NOTIFICATION -->
+    <div id="securityToast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl border border-slate-700 text-xs font-bold flex items-center space-x-3 transition-all transform translate-y-20 opacity-0 pointer-events-none">
+        <span id="toastIcon" class="text-lg">🛡️</span>
+        <span id="toastMessage">Tindakan Dihalang: Hak Cipta Terpelihara.</span>
+    </div>
+
+    <!-- MAIN INFOGRAPHIC CONTAINER -->
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-300 p-3 sm:p-6 space-y-6">
+
+        <!-- TOP TOOLBAR / NO-PRINT -->
+        <div class="no-print bg-slate-900 text-slate-200 px-4 py-2.5 rounded-2xl flex flex-wrap justify-between items-center gap-2 text-xs">
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold tracking-wide text-slate-100">Engineering Science Quick Notes</span>
+            </div>
+
+            <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-3.5 py-1.5 rounded-xl transition-all text-xs flex items-center space-x-1.5 shadow">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                <span>Cetak / PDF</span>
+            </button>
+        </div>
+
+        <!-- HEADER BANNER -->
+        <div class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 text-white p-5 sm:p-7 rounded-2xl shadow-md relative overflow-hidden border border-indigo-700">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="bg-indigo-950/80 text-amber-300 border border-indigo-500/50 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-inner">
+                        ENGINEERING SCIENCE QUICK NOTES
+                    </span>
+                    <span class="bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                        Ideal for Polytechnic Students
+                    </span>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 font-black text-xs">
+                    ⚙️
+                </div>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white uppercase">
+                OBJECT ON AN INCLINED PLANE
+            </h1>
+            
+            <div class="flex items-center space-x-2 mt-1.5 text-xs sm:text-sm font-bold text-indigo-200">
+                <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                <span>Resolution of Forces &bull; Vector Axis &bull; Normal Force (R) & Weight Components (Wx, Wy)</span>
+            </div>
+
+            <div class="text-[10px] text-indigo-300 font-mono text-right mt-2 uppercase tracking-widest font-bold">
+                ENGINEERING SCIENCE
+            </div>
+        </div>
+
+        <!-- SECTION 1: CONCEPT EVOLUTION (CYAN THEME) -->
+        <div class="bg-white rounded-2xl border-2 border-cyan-200 p-4 sm:p-5 space-y-4 shadow-sm">
+            
+            <!-- Section Header Bar -->
+            <div class="flex items-center justify-between border-b border-cyan-100 pb-3">
+                <div class="flex items-center space-x-3">
+                    <span class="bg-cyan-500 text-white text-sm font-black w-7 h-7 rounded-lg flex items-center justify-center shadow">1</span>
+                    <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">
+                        PRINCIPLE OF INCLINED FORCES <span class="text-cyan-600 font-normal text-xs sm:text-sm lowercase font-sans">(flat vs elevated surface)</span>
+                    </h2>
+                </div>
+                <span class="bg-cyan-100 text-cyan-800 text-[11px] font-black px-3 py-1 rounded-md border border-cyan-300 uppercase tracking-wider">
+                    CONCEPT
+                </span>
+            </div>
+
+            <!-- Law Statement / Concept Banner -->
+            <div class="bg-cyan-50/60 border border-cyan-200 rounded-xl p-3.5 text-xs text-slate-700 leading-relaxed font-medium">
+                <strong>Core Physics Principle:</strong> All force vectors (<strong class="text-rose-600 font-black">R</strong>, <strong class="text-blue-600 font-black">W</strong>, <strong class="text-emerald-600 font-black">Wx</strong>, <strong class="text-purple-600 font-black">Wy</strong>) originate at a single central point inside object <strong class="text-amber-800 font-black">(m)</strong>. As angle <strong class="text-purple-700 font-bold">&theta;</strong> increases, Normal force (<strong class="text-rose-600">R</strong>) rotates perpendicular to the plane while Weight (<strong class="text-blue-600">W = mg</strong>) remains strictly vertical down.
+            </div>
+
+            <!-- Side-by-Side Graphic Cards (Step 1 vs Step 2) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Step 1 Card -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-300 p-4 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-2">
+                            <span class="text-xs font-black text-slate-700 uppercase tracking-wider">STEP 1: FLAT SURFACE</span>
+                            <span class="bg-slate-800 text-amber-300 text-[11px] font-mono px-2.5 py-0.5 rounded-full font-bold">&theta; = 0&deg;</span>
+                        </div>
+
+                        <!-- SVG Diagram Step 1 -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-2 flex justify-center items-center h-60 relative shadow-inner overflow-hidden">
+                            <svg class="w-full h-full max-w-[280px]" viewBox="0 0 220 170">
+                                <defs>
+                                    <marker id="arr-red-1" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="2.2" markerHeight="2.2" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#e11d48"/></marker>
+                                    <marker id="arr-blue-1" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="2.2" markerHeight="2.2" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1d4ed8"/></marker>
+                                </defs>
+
+                                <line x1="10" y1="120" x2="210" y2="120" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="110" y1="15" x2="110" y2="155" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,3"/>
+
+                                <rect x="65" y="55" width="90" height="65" fill="#f59e0b" rx="6" stroke="#78350f" stroke-width="2.5"/>
+                                <text x="75" y="70" class="svg-text-clean" font-size="11" fill="#78350f">(m)</text>
+
+                                <path d="M 110,47 L 118,47 L 118,55" fill="none" stroke="#e11d48" stroke-width="1.6"/>
+                                <circle cx="110" cy="87.5" r="3.5" fill="#78350f"/>
+
+                                <line x1="110" y1="87.5" x2="110" y2="25" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-red-1)"/>
+                                <text x="110" y="12" class="svg-text-clean" font-size="11" fill="#e11d48" text-anchor="middle">R</text>
+
+                                <line x1="110" y1="87.5" x2="110" y2="148" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-blue-1)"/>
+                                <text x="110" y="162" class="svg-text-clean" font-size="11" fill="#1d4ed8" text-anchor="middle">W = mg</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-2.5 rounded-xl border border-slate-200 text-xs space-y-1 font-medium text-slate-700">
+                        <div class="flex justify-between"><span>Normal Force (R):</span><strong class="text-rose-600">R = W = mg</strong></div>
+                        <div class="flex justify-between"><span>Sliding Force (Wx):</span><strong class="text-slate-500">Wx = 0 N</strong></div>
+                    </div>
+                </div>
+
+                <!-- Step 2 Card -->
+                <div class="bg-cyan-50/50 rounded-2xl border border-cyan-300 p-4 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-cyan-200 pb-2 mb-2">
+                            <span class="text-xs font-black text-cyan-800 uppercase tracking-wider">STEP 2: INCLINED SURFACE</span>
+                            <span class="bg-cyan-600 text-white text-[11px] font-mono px-2.5 py-0.5 rounded-full font-bold">&theta; &gt; 0&deg;</span>
+                        </div>
+
+                        <!-- SVG Diagram Step 2 -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-2 flex justify-center items-center h-60 relative shadow-inner overflow-hidden">
+                            <svg class="w-full h-full max-w-[280px]" viewBox="0 0 220 170">
+                                <defs>
+                                    <marker id="arr-red-2" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="2.2" markerHeight="2.2" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#e11d48"/></marker>
+                                    <marker id="arr-blue-2" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="2.2" markerHeight="2.2" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1d4ed8"/></marker>
+                                    <marker id="arr-purple-2" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="2.2" markerHeight="2.2" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed"/></marker>
+                                    <marker id="arr-green-2" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="2.2" markerHeight="2.2" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/></marker>
+                                </defs>
+
+                                <polygon points="10,145 205,145 205,60" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+                                
+                                <path d="M 45,145 A 35,35 0 0,0 42,130" fill="none" stroke="#7c3aed" stroke-width="2"/>
+                                <text x="52" y="140" class="svg-text-clean" font-size="11" fill="#7c3aed">&theta;</text>
+
+                                <g transform="translate(108,100) rotate(-23.6)">
+                                    <line x1="0" y1="-75" x2="0" y2="55" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,3"/>
+
+                                    <rect x="-42" y="-55" width="84" height="55" fill="#f59e0b" rx="6" stroke="#78350f" stroke-width="2.5"/>
+                                    <text x="-32" y="-42" class="svg-text-clean" font-size="10" fill="#78350f">(m)</text>
+
+                                    <path d="M 0,-65 L 8,-65 L 8,-55" fill="none" stroke="#e11d48" stroke-width="1.6"/>
+                                    <circle cx="0" cy="-27.5" r="3.5" fill="#78350f"/>
+
+                                    <line x1="0" y1="-27.5" x2="0" y2="-76" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-red-2)"/>
+                                    <text x="0" y="-84" class="svg-text-clean" font-size="11" fill="#e11d48" text-anchor="middle">R</text>
+
+                                    <line x1="0" y1="-27.5" x2="-58" y2="-27.5" stroke="#059669" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-green-2)"/>
+                                    <text x="-68" y="-27.5" class="svg-text-clean" font-size="11" fill="#059669" text-anchor="middle">Wx</text>
+
+                                    <line x1="0" y1="-27.5" x2="0" y2="42" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-purple-2)"/>
+                                    <text x="22" y="44" class="svg-text-clean" font-size="11" fill="#7c3aed" text-anchor="start">Wy</text>
+
+                                    <line x1="0" y1="-27.5" x2="-22" y2="42" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-blue-2)"/>
+                                    <text x="-34" y="54" class="svg-text-clean" font-size="11" fill="#1d4ed8" text-anchor="end">W = mg</text>
+
+                                    <path d="M 0,-5 A 22,22 0 0,1 -9,2" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
+                                    <text x="-12" y="6" class="svg-text-clean" font-size="10" fill="#7c3aed" text-anchor="middle">&theta;</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-2.5 rounded-xl border border-cyan-200 text-xs space-y-1 font-medium text-slate-700">
+                        <div class="flex justify-between"><span>Normal Component:</span><strong class="text-purple-700">R = Wy = mg cos&theta;</strong></div>
+                        <div class="flex justify-between"><span>Parallel Component:</span><strong class="text-emerald-700">Wx = mg sin&theta;</strong></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 2: FORCE COMPONENT RESOLUTION & FORMULAS (PURPLE THEME) -->
+        <div class="bg-white rounded-2xl border-2 border-purple-200 p-4 sm:p-5 space-y-4 shadow-sm">
+            
+            <!-- Section Header Bar -->
+            <div class="flex items-center justify-between border-b border-purple-100 pb-3">
+                <div class="flex items-center space-x-3">
+                    <span class="bg-purple-600 text-white text-sm font-black w-7 h-7 rounded-lg flex items-center justify-center shadow">2</span>
+                    <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">
+                        FORCE RESOLUTION &amp; FORMULAS
+                    </h2>
+                </div>
+                <span class="bg-purple-100 text-purple-800 text-[11px] font-black px-3 py-1 rounded-md border border-purple-300 uppercase tracking-wider">
+                    FORMULAS
+                </span>
+            </div>
+
+            <!-- Dark Formula Summary Card -->
+            <div class="bg-slate-900 text-white rounded-2xl p-4 border border-slate-800 shadow-md">
+                <div class="text-[11px] text-amber-400 font-bold uppercase tracking-wider mb-2 text-center">
+                    PRIMARY VECTOR COMPONENT EQUATIONS
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-slate-800/90 p-3 rounded-xl border border-emerald-500/30 text-center">
+                        <div class="text-[10px] text-emerald-400 font-mono uppercase font-bold">Parallel / Downslope Force</div>
+                        <div class="text-xl font-black text-emerald-300 font-mono mt-1">Wx = m &middot; g &middot; sin &theta;</div>
+                    </div>
+                    <div class="bg-slate-800/90 p-3 rounded-xl border border-purple-500/30 text-center">
+                        <div class="text-[10px] text-purple-400 font-mono uppercase font-bold">Perpendicular / Normal Reaction Force</div>
+                        <div class="text-xl font-black text-purple-300 font-mono mt-1">Wy = m &middot; g &middot; cos &theta;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mnemonic Callout Box -->
+            <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-3.5 flex items-start space-x-3 text-xs">
+                <span class="text-2xl">💡</span>
+                <div class="space-y-1">
+                    <span class="font-black text-amber-900 text-sm">Memory Trick (Polytechnic Mnemonic):</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1 font-semibold">
+                        <div class="bg-white p-2 rounded-lg border border-amber-200 text-slate-800 shadow-sm">
+                            🏃 <strong class="text-emerald-700 font-black">Wx (Sliding Down)</strong> = Uses <strong class="text-emerald-700 font-black">SIN &theta;</strong>
+                        </div>
+                        <div class="bg-white p-2 rounded-lg border border-amber-200 text-slate-800 shadow-sm">
+                            🧘 <strong class="text-purple-700 font-black">Wy (Perpendicular Axis)</strong> = Uses <strong class="text-purple-700 font-black">COS &theta;</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side-by-Side Application Cases (Case A vs Case B) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                
+                <!-- CASE A: Smooth Surface (Frictionless) -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-300 p-4 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-2">
+                            <span class="text-xs font-black text-slate-800 uppercase tracking-wider">CASE A: SMOOTH INCLINE</span>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 rounded border border-emerald-300">f = 0 N</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 font-medium mb-2">
+                            Object accelerates downslope purely due to component <strong class="text-emerald-600 font-bold">Wx</strong> without resistive friction force.
+                        </p>
+
+                        <!-- SVG Case A -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-2 flex justify-center items-center h-48 relative shadow-inner overflow-hidden">
+                            <svg class="w-full h-full max-w-[260px]" viewBox="0 0 220 170">
+                                <polygon points="10,145 205,145 205,60" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5"/>
+                                <path d="M 45,145 A 35,35 0 0,0 42,130" fill="none" stroke="#7c3aed" stroke-width="2"/>
+                                <text x="52" y="140" class="svg-text-clean" font-size="11" fill="#7c3aed">&theta;</text>
+
+                                <g transform="translate(108,100) rotate(-23.6)">
+                                    <line x1="0" y1="-75" x2="0" y2="55" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,3"/>
+                                    <rect x="-42" y="-55" width="84" height="55" fill="#f59e0b" rx="6" stroke="#78350f" stroke-width="2.5"/>
+                                    <text x="-32" y="-42" class="svg-text-clean" font-size="10" fill="#78350f">(m)</text>
+                                    <circle cx="0" cy="-27.5" r="3.5" fill="#78350f"/>
+
+                                    <line x1="0" y1="-27.5" x2="0" y2="-76" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-red-2)"/>
+                                    <text x="0" y="-84" class="svg-text-clean" font-size="11" fill="#e11d48" text-anchor="middle">R</text>
+
+                                    <line x1="0" y1="-27.5" x2="-58" y2="-27.5" stroke="#059669" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-green-2)"/>
+                                    <text x="-68" y="-27.5" class="svg-text-clean" font-size="11" fill="#059669" text-anchor="middle">Wx</text>
+
+                                    <line x1="0" y1="-27.5" x2="0" y2="42" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-purple-2)"/>
+                                    <text x="22" y="44" class="svg-text-clean" font-size="11" fill="#7c3aed" text-anchor="start">Wy</text>
+
+                                    <line x1="0" y1="-27.5" x2="-22" y2="42" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-blue-2)"/>
+                                    <text x="-34" y="54" class="svg-text-clean" font-size="11" fill="#1d4ed8" text-anchor="end">W = mg</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-2.5 rounded-xl text-[11px] font-mono space-y-1">
+                        <div class="text-amber-300 font-bold">Fnet = Wx = m &middot; a</div>
+                        <div class="text-slate-300">m &middot; g &middot; sin&theta; = m &middot; a &rArr; <strong class="text-emerald-400">a = g &middot; sin&theta;</strong></div>
+                    </div>
+                </div>
+
+                <!-- CASE B: Rough Surface (With Friction) -->
+                <div class="bg-purple-50/50 rounded-2xl border border-purple-200 p-4 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-purple-200 pb-2 mb-2">
+                            <span class="text-xs font-black text-purple-900 uppercase tracking-wider">CASE B: ROUGH INCLINE</span>
+                            <span class="bg-amber-100 text-amber-900 text-[10px] font-black px-2 py-0.5 rounded border border-amber-300">fk = &mu;&middot;R</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 font-medium mb-2">
+                            Friction force <strong class="text-amber-700 font-bold">(fk = &mu;R)</strong> opposes downslope sliding motion along the surface.
+                        </p>
+
+                        <!-- SVG Case B -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-2 flex justify-center items-center h-48 relative shadow-inner overflow-hidden">
+                            <svg class="w-full h-full max-w-[260px]" viewBox="0 0 220 170">
+                                <polygon points="10,145 205,145 205,60" fill="#f3e8ff" stroke="#9333ea" stroke-width="2.5"/>
+                                <path d="M 45,145 A 35,35 0 0,0 42,130" fill="none" stroke="#7c3aed" stroke-width="2"/>
+                                <text x="52" y="140" class="svg-text-clean" font-size="11" fill="#7c3aed">&theta;</text>
+
+                                <g transform="translate(108,100) rotate(-23.6)">
+                                    <line x1="0" y1="-75" x2="0" y2="55" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,3"/>
+                                    <rect x="-42" y="-55" width="84" height="55" fill="#f59e0b" rx="6" stroke="#78350f" stroke-width="2.5"/>
+                                    <text x="-32" y="-42" class="svg-text-clean" font-size="10" fill="#78350f">(m)</text>
+                                    <circle cx="0" cy="-27.5" r="3.5" fill="#78350f"/>
+
+                                    <line x1="0" y1="-27.5" x2="0" y2="-76" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-red-2)"/>
+                                    <text x="0" y="-84" class="svg-text-clean" font-size="11" fill="#e11d48" text-anchor="middle">R</text>
+
+                                    <line x1="0" y1="-27.5" x2="-58" y2="-27.5" stroke="#059669" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-green-2)"/>
+                                    <text x="-68" y="-27.5" class="svg-text-clean" font-size="11" fill="#059669" text-anchor="middle">Wx</text>
+
+                                    <line x1="0" y1="-27.5" x2="48" y2="-27.5" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-red-2)"/>
+                                    <text x="58" y="-27.5" class="svg-text-clean" font-size="11" fill="#d97706" text-anchor="middle">fk</text>
+
+                                    <line x1="0" y1="-27.5" x2="0" y2="42" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-purple-2)"/>
+                                    <text x="22" y="44" class="svg-text-clean" font-size="11" fill="#7c3aed" text-anchor="start">Wy</text>
+
+                                    <line x1="0" y1="-27.5" x2="-22" y2="42" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arr-blue-2)"/>
+                                    <text x="-34" y="54" class="svg-text-clean" font-size="11" fill="#1d4ed8" text-anchor="end">W = mg</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-2.5 rounded-xl text-[11px] font-mono space-y-1">
+                        <div class="text-amber-300 font-bold">Fnet = Wx - fk = m &middot; a</div>
+                        <div class="text-slate-300">mg sin&theta; - &mu;(mg cos&theta;) = m &middot; a</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SECTION 3: QUICK SUMMARY TABLE -->
+        <div class="bg-white rounded-2xl border-2 border-slate-200 p-4 sm:p-5 space-y-4 shadow-sm">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg">📊</span>
+                    <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">
+                        QUICK SUMMARY COMPARISON
+                    </h2>
+                </div>
+                <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-3 py-1 rounded-md border border-slate-300">
+                    Polytechnic Engineering Core
+                </span>
+            </div>
+
+            <!-- Summary Table -->
+            <div class="overflow-x-auto rounded-xl border border-slate-300 shadow-sm">
+                <table class="w-full text-xs text-left">
+                    <thead class="bg-slate-900 text-white font-bold uppercase text-[11px]">
+                        <tr>
+                            <th class="p-3 border-b border-slate-700">Aspect / Force</th>
+                            <th class="p-3 border-b border-slate-700">Flat Surface (&theta; = 0&deg;)</th>
+                            <th class="p-3 border-b border-slate-700">Inclined Plane (&theta; &gt; 0&deg;)</th>
+                            <th class="p-3 border-b border-slate-700">Rough Inclined Surface</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 font-medium text-slate-700">
+                        <tr class="bg-white">
+                            <td class="p-3 font-bold text-slate-900">Normal Force (R)</td>
+                            <td class="p-3 font-mono font-bold text-rose-700">R = W = mg</td>
+                            <td class="p-3 font-mono font-bold text-purple-700">R = Wy = mg cos &theta;</td>
+                            <td class="p-3 font-mono font-bold text-purple-700">R = mg cos &theta;</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Sliding Force (Wx)</td>
+                            <td class="p-3 font-mono text-slate-500">Wx = 0 N</td>
+                            <td class="p-3 font-mono font-bold text-emerald-700">Wx = mg sin &theta;</td>
+                            <td class="p-3 font-mono font-bold text-emerald-700">Wx = mg sin &theta;</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-bold text-slate-900">Resistive Friction (f)</td>
+                            <td class="p-3 font-mono text-slate-500">f = 0 N</td>
+                            <td class="p-3 font-mono text-slate-500">f = 0 N (Smooth)</td>
+                            <td class="p-3 font-mono font-bold text-amber-700">fk = &mu; &middot; R</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">System Acceleration (a)</td>
+                            <td class="p-3 font-mono text-slate-500">a = 0 m/s&sup2;</td>
+                            <td class="p-3 font-mono font-bold text-blue-700">a = g sin &theta;</td>
+                            <td class="p-3 font-mono font-bold text-indigo-700">a = g(sin&theta; - &mu;cos&theta;)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 4: INTERACTIVE VECTOR SIMULATOR (BRIGHT LIGHT THEME) -->
+        <div class="bg-white rounded-2xl border-2 border-amber-300 p-4 sm:p-6 shadow-md space-y-4 no-print">
+            
+            <div class="flex items-center justify-between border-b border-amber-200 pb-3">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xl">🕹️</span>
+                    <h2 class="text-base sm:text-lg font-black text-amber-900 uppercase tracking-wide">
+                        INTERACTIVE VECTOR SIMULATOR
+                    </h2>
+                </div>
+                <span class="bg-amber-500 text-white text-[10px] font-black px-3 py-1 rounded-md uppercase tracking-wider shadow-sm">
+                    FULL INTERACTIVE TOOL
+                </span>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 items-center">
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1.5 text-slate-700">
+                        <label for="angleInput">Incline Angle (&theta;):</label>
+                        <span id="angleValue" class="text-amber-800 font-mono text-xs font-black bg-amber-100 px-2.5 py-0.5 rounded border border-amber-300">30&deg;</span>
+                    </div>
+                    <input type="range" id="angleInput" min="0" max="75" value="30" step="1" 
+                           class="w-full accent-amber-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1.5 text-slate-700">
+                        <label for="massInput">Object Mass (m):</label>
+                        <span id="massValue" class="text-emerald-800 font-mono text-xs font-black bg-emerald-100 px-2.5 py-0.5 rounded border border-emerald-300">10 kg</span>
+                    </div>
+                    <input type="range" id="massInput" min="1" max="50" value="10" step="1" 
+                           class="w-full accent-emerald-600 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="p-2.5 bg-white border border-slate-200 rounded-xl text-center shadow-sm">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-wider font-bold block">Object State</span>
+                    <span id="statusState" class="text-xs font-black font-mono text-emerald-600">SLIDING DOWNSLOPE</span>
+                </div>
+            </div>
+
+            <!-- Canvas Container (Bright Light Theme) -->
+            <div class="relative w-full bg-slate-50 rounded-2xl border border-slate-300 p-2 overflow-hidden shadow-inner">
+                <canvas id="simCanvas" class="w-full h-[450px] sm:h-[500px] block rounded-xl bg-slate-50"></canvas>
+            </div>
+
+            <!-- Vector Legend Bar -->
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-bold text-slate-700 pt-1">
+                <span class="flex items-center space-x-1.5"><span class="w-3.5 h-2 bg-blue-600 rounded-full inline-block"></span><span>W = mg (Weight)</span></span>
+                <span class="flex items-center space-x-1.5"><span class="w-3.5 h-2 bg-rose-600 rounded-full inline-block"></span><span>R (Normal Force)</span></span>
+                <span class="flex items-center space-x-1.5"><span class="w-3.5 h-2 bg-emerald-600 rounded-full inline-block"></span><span>Wx (Parallel Component)</span></span>
+                <span class="flex items-center space-x-1.5"><span class="w-3.5 h-2 bg-purple-600 rounded-full inline-block"></span><span>Wy (Perpendicular Component)</span></span>
+            </div>
+
+        </div>
+
+        <!-- FOOTER (ACADEMIC CREDITS & COPYRIGHT) -->
+        <div class="border-t border-slate-300 pt-4 space-y-2 text-slate-600 text-[11px]">
+            <div class="flex flex-wrap justify-between items-center gap-2 font-mono">
+                <span>📖 <strong>Reference:</strong> DBS10012: Engineering Science Module</span>
+                <span class="text-slate-500">Vector Resolution &bull; Polytechnic Physics</span>
+            </div>
+
+            <div class="flex flex-wrap justify-between items-center gap-2 pt-2 border-t border-slate-200">
+                <div class="font-bold text-slate-800">
+                    POLITEKNIK PORT DICKSON &bull; <span class="text-slate-600 font-normal">Unit Sains, JMSK</span>
+                </div>
+
+                <div class="bg-amber-100 text-amber-900 border border-amber-300 font-extrabold px-3 py-1 rounded-md uppercase tracking-wider text-[10px]">
+                    FOR EDUCATIONAL PURPOSES ONLY
+                </div>
+
+                <div class="text-slate-500 font-medium">
+                    &bull; Strictly for Academic &amp; Learning Use
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SIMULATOR & SECURITY LOGIC -->
+    <script>
+        const g = 9.81;
+
+        // Elements
+        const angleInput = document.getElementById('angleInput');
+        const massInput = document.getElementById('massInput');
+
+        const angleValue = document.getElementById('angleValue');
+        const massValue = document.getElementById('massValue');
+        const statusState = document.getElementById('statusState');
+
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const securityToast = document.getElementById('securityToast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        // Toast Notification Helper
+        function showToast(message, icon = '🛡️') {
+            toastMessage.textContent = message;
+            document.getElementById('toastIcon').textContent = icon;
+            securityToast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                securityToast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // Global Anti-Copy & Security Handlers
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            showToast('Klik Kanan Dihalang (Hak Cipta Terpelihara)', '🚫');
+        });
+
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+        });
+
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const isCmdOrCtrl = e.ctrlKey || e.metaKey;
+            const key = e.key.toLowerCase();
+
+            if (e.key === 'F12' || 
+               (isCmdOrCtrl && (key === 'u' || key === 's' || key === 'c' || key === 'i' || key === 'j')) ||
+               (isCmdOrCtrl && e.shiftKey && (key === 'i' || key === 'j' || key === 'c'))) {
+                e.preventDefault();
+                showToast('Tindakan Salin / Inspect Dihalang!', '🛡️');
+            }
+        });
+
+        // Setup Canvas Resolution
+        function resizeCanvas() {
+            if (!canvas) return;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            draw();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Compact Sleek Arrow Shaft Drawer
+        function drawArrowShaftAndHead(ctx, fromX, fromY, toX, toY, color) {
+            const headlen = 5;
+            const dx = toX - fromX;
+            const dy = toY - fromY;
+            const angle = Math.atan2(dy, dx);
+
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.fillStyle = color;
+            ctx.lineWidth = 2.8;
+            ctx.lineCap = 'round';
+
+            // Shaft Line
+            ctx.beginPath();
+            ctx.moveTo(fromX, fromY);
+            ctx.lineTo(toX, toY);
+            ctx.stroke();
+
+            // Arrow Head
+            ctx.beginPath();
+            ctx.moveTo(toX, toY);
+            ctx.lineTo(toX - headlen * Math.cos(angle - Math.PI / 6), toY - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(toX - headlen * Math.cos(angle + Math.PI / 6), toY - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.lineTo(toX, toY);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // Clean Text Drawer with White Outline Halo
+        function drawCleanText(ctx, posX, posY, label, color, align = 'center') {
+            if (!label) return;
+
+            ctx.save();
+            ctx.translate(posX, posY);
+
+            ctx.font = 'bold 12px Inter, sans-serif';
+            ctx.textAlign = align;
+            ctx.textBaseline = 'middle';
+
+            // Crisp White Outline for High Legibility on Bright Background
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 4.5;
+            ctx.lineJoin = 'round';
+            ctx.strokeText(label, 0, 0);
+
+            // Colored Text Fill
+            ctx.fillStyle = color;
+            ctx.fillText(label, 0, 0);
+
+            ctx.restore();
+        }
+
+        // Draw Simulation Loop
+        function draw() {
+            if (!canvas || !ctx) return;
+            const width = canvas.getBoundingClientRect().width;
+            const height = canvas.getBoundingClientRect().height;
+
+            // Clear Canvas (Bright Light Slate Background)
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, width, height);
+
+            const thetaDeg = parseFloat(angleInput.value);
+            const m = parseFloat(massInput.value);
+            const thetaRad = (thetaDeg * Math.PI) / 180;
+
+            // Calculations
+            const W = m * g;
+            const Wx = W * Math.sin(thetaRad);
+            const Wy = W * Math.cos(thetaRad);
+            const R = Wy;
+
+            angleValue.innerHTML = `${thetaDeg}&deg;`;
+            massValue.textContent = `${m} kg`;
+
+            if (thetaDeg === 0) {
+                statusState.textContent = 'REST EQUILIBRIUM (R = W)';
+                statusState.className = 'text-xs font-black font-mono text-cyan-600';
+            } else {
+                statusState.textContent = `SLIDING DOWNSLOPE (Wx = ${Wx.toFixed(1)} N)`;
+                statusState.className = 'text-xs font-black font-mono text-emerald-600';
+            }
+
+            // Enlarged Scale & Centered Layout Calculations
+            const planeLength = Math.min(width * 0.72, height * 0.72);
+            
+            // Calculate horizontal & vertical bounding extent to center ramp and box
+            const rampWidth = planeLength * Math.cos(thetaRad);
+            const rampHeight = planeLength * Math.sin(thetaRad);
+
+            // Centered Origin
+            const originX = Math.max(width * 0.16, (width - rampWidth) / 2);
+            const originY = Math.min(height * 0.78, (height + rampHeight) / 2 + 20);
+
+            const endX = originX + rampWidth;
+            const endY = originY - rampHeight;
+
+            // Draw Horizontal Ground Reference Line
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 5]);
+            ctx.beginPath();
+            ctx.moveTo(originX - 30, originY);
+            ctx.lineTo(originX + planeLength + 40, originY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw Ramp Triangle (Bright Clean Colors)
+            ctx.beginPath();
+            ctx.moveTo(originX, originY);
+            ctx.lineTo(endX, endY);
+            ctx.lineTo(endX, originY);
+            ctx.closePath();
+            ctx.fillStyle = '#dbeafe';
+            ctx.fill();
+            ctx.strokeStyle = '#2563eb';
+            ctx.lineWidth = 2.8;
+            ctx.stroke();
+
+            // Base Theta Arc
+            if (thetaDeg > 0) {
+                ctx.beginPath();
+                ctx.arc(originX, originY, 40, 0, -thetaRad, true);
+                ctx.strokeStyle = '#7c3aed';
+                ctx.lineWidth = 2.2;
+                ctx.stroke();
+
+                ctx.font = 'bold 12px Inter, sans-serif';
+                ctx.fillStyle = '#6d28d9';
+                ctx.fillText(`θ = ${thetaDeg}°`, originX + 50, originY - 12);
+            }
+
+            // Box Dimensions & Position
+            const boxDist = planeLength * 0.50;
+            const boxCenterX = originX + boxDist * Math.cos(thetaRad);
+            const boxCenterY = originY - boxDist * Math.sin(thetaRad);
+
+            const boxWidth = 98;
+            const boxHeight = 72;
+            const centerMassYLocal = -boxHeight / 2;
+
+            ctx.save();
+            ctx.translate(boxCenterX, boxCenterY);
+            ctx.rotate(-thetaRad);
+
+            // Dashed Perpendicular Axis
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 1.8;
+            ctx.setLineDash([5, 4]);
+            ctx.beginPath();
+            ctx.moveTo(0, -boxHeight - 90);
+            ctx.lineTo(0, centerMassYLocal + 90);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Object Box (Amber / Gold Fill)
+            ctx.fillStyle = '#f59e0b';
+            ctx.strokeStyle = '#78350f';
+            ctx.lineWidth = 2.8;
+            ctx.beginPath();
+            ctx.roundRect(-boxWidth / 2, -boxHeight, boxWidth, boxHeight, 10);
+            ctx.fill();
+            ctx.stroke();
+
+            // Mass Label (m) inside box corner
+            ctx.save();
+            ctx.translate(-boxWidth / 2 + 20, -boxHeight + 18);
+            ctx.font = 'bold 12px Inter, sans-serif';
+            ctx.fillStyle = '#78350f';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(`(${m}kg)`, 0, 0);
+            ctx.restore();
+
+            // Right Angle Symbol
+            ctx.strokeStyle = '#e11d48';
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.moveTo(0, -boxHeight - 10);
+            ctx.lineTo(10, -boxHeight - 10);
+            ctx.lineTo(10, -boxHeight);
+            ctx.stroke();
+
+            // Center Mass Node Dot
+            ctx.fillStyle = '#78350f';
+            ctx.beginPath();
+            ctx.arc(0, centerMassYLocal, 4.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Vector Scale Factor
+            const scaleFactor = 0.28 + (m / 50) * 0.08;
+
+            // 1. Normal Force R (Rose Red)
+            const rLen = Math.min(120, Math.max(55, R * scaleFactor * 1.3));
+            drawArrowShaftAndHead(ctx, 0, centerMassYLocal, 0, centerMassYLocal - rLen, '#e11d48');
+            drawCleanText(ctx, 0, centerMassYLocal - rLen - 14, `R = ${R.toFixed(1)} N`, '#be123c', 'center');
+
+            // 2. Wy Vector (Purple)
+            if (thetaDeg > 0) {
+                const wyLen = Math.min(120, Math.max(55, Wy * scaleFactor * 1.3));
+                drawArrowShaftAndHead(ctx, 0, centerMassYLocal, 0, centerMassYLocal + wyLen, '#7c3aed');
+                drawCleanText(ctx, 48, centerMassYLocal + wyLen + 6, `Wy = ${Wy.toFixed(1)} N`, '#6d28d9', 'left');
+            }
+
+            // 3. Wx Vector (Emerald Green)
+            if (thetaDeg > 0) {
+                const wxScale = Math.min(120, Math.max(50, Wx * scaleFactor * 1.3));
+                drawArrowShaftAndHead(ctx, 0, centerMassYLocal, -wxScale, centerMassYLocal, '#059669');
+                drawCleanText(ctx, -wxScale - 48, centerMassYLocal, `Wx = ${Wx.toFixed(1)} N`, '#047857', 'right');
+            }
+
+            // 4. Weight W Vector (Blue)
+            const wLen = Math.min(120, Math.max(55, W * scaleFactor * 1.25));
+            const wTargetX = -wLen * Math.sin(thetaRad);
+            const wTargetY = centerMassYLocal + wLen * Math.cos(thetaRad);
+            drawArrowShaftAndHead(ctx, 0, centerMassYLocal, wTargetX, wTargetY, '#1d4ed8');
+
+            if (thetaDeg === 0) {
+                drawCleanText(ctx, wTargetX, wTargetY + 16, `W = ${W.toFixed(1)} N`, '#1e40af', 'center');
+            } else {
+                drawCleanText(ctx, wTargetX - 48, wTargetY + 10, `W = ${W.toFixed(1)} N`, '#1e40af', 'right');
+            }
+
+            // Theta Arc between W and Wy
+            if (thetaDeg > 0) {
+                const arcRadius = 32;
+                ctx.beginPath();
+                ctx.arc(0, centerMassYLocal, arcRadius, Math.PI / 2, Math.PI / 2 + thetaRad, false);
+                ctx.strokeStyle = '#7c3aed';
+                ctx.lineWidth = 2.2;
+                ctx.stroke();
+
+                const midAngle = Math.PI / 2 + (thetaRad / 2);
+                const labelX = (arcRadius + 16) * Math.cos(midAngle);
+                const labelY = centerMassYLocal + (arcRadius + 16) * Math.sin(midAngle);
+                drawCleanText(ctx, labelX, labelY, `θ = ${thetaDeg}°`, '#6d28d9', 'center');
+            }
+
+            ctx.restore();
+        }
+
+        // Event Listeners
+        angleInput.addEventListener('input', draw);
+        massInput.addEventListener('input', draw);
+
+        window.addEventListener('load', () => {
+            resizeCanvas();
+            draw();
+        });
+    </script>
+</body>
+</html>
